@@ -1,9 +1,16 @@
-import "./App.css"
+import { Container } from 'react-bootstrap'
+import Header from './components/Header'
+import './App.css'
 
 function App() {
   return (
     <>
-      <h1>mern ecommerce</h1>
+      <Header />
+      <main className="py-3">
+        <Container>
+          <h1>mern ecommerce</h1>
+        </Container>
+      </main>
     </>
   )
 }
