@@ -3,17 +3,26 @@ import { Link } from 'react-router-dom'
 import { Row, Col, Image, ListGroup, Card, Button } from 'react-bootstrap'
 import Rating from '../components/Rating'
 import { useGetProductDetailsQuery } from '../slices/productsApiSlice'
+import Message from '../components/Message'
 
 export default function ProductScreen() {
-
   const { id } = useParams()
-  const {data: product, isLoading, isError, error} = useGetProductDetailsQuery(id)
-  
+  const {
+    data: product,
+    isLoading,
+    isError,
+    error,
+  } = useGetProductDetailsQuery(id)
+
   if (isLoading) {
     return <h2>Loading...</h2>
   }
   if (isError) {
-    return <h2>{error.data.message}</h2>
+    return (
+      <Message variant="danger">
+        Something went wrong {error.data.message}
+      </Message>
+    )
   }
   return (
     <>
