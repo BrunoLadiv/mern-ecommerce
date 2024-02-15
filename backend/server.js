@@ -1,4 +1,4 @@
-import express from 'express'
+import express, { application } from 'express'
 import products from './data/products.js'
 import productRoutes from './routes/productRoutes.js' 
 import userRoutes from './routes/userRoutes.js'
@@ -12,6 +12,8 @@ connectDB()
 const port = process.env.PORT || 3000
 
 const app = express()
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }) )
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
