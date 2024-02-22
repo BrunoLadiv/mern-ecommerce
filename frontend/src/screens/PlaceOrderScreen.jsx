@@ -23,7 +23,7 @@ const PlaceOrderScreen = () => {
       navigate('/payment')
     }
   }, [cart.paymentMethod, cart.shippingAddress.address, navigate])
-
+  console.log(cart);
   const dispatch = useDispatch()
   const placeOrderHandler = async () => {
     try {
