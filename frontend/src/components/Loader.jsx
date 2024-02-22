@@ -1,5 +1,4 @@
-import { Spinner } from "react-bootstrap";
-
+import { Spinner } from 'react-bootstrap'
 
 export default function Loader() {
   return (
@@ -7,13 +6,13 @@ export default function Loader() {
       animation="border"
       role="status"
       style={{
-        height: "100px",
-        width: "100px",
-        margin: "auto",
-        display: "block",
+        height: '100px',
+        width: '100px',
+        margin: 'auto',
+        display: 'block',
       }}
     >
-      <span className="sr-only">Loading...</span>
+      <span className="sr-only"></span>
     </Spinner>
   )
 }
