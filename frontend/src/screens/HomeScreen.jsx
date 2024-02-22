@@ -4,7 +4,7 @@ import { useGetProductsQuery } from '../slices/productsApiSlice'
 import Loader from '../components/Loader'
 import Message from '../components/Message'
 export default function HomeScreen() {
-  const { data: products, isLoading, isError, error } = useGetProductsQuery()
+  const { data, isLoading, isError, error } = useGetProductsQuery()
   if (isLoading) {
     return <Loader />
   }
@@ -15,13 +15,12 @@ export default function HomeScreen() {
       </Message>
     )
   }
-  //   console.log(products)
   return (
     <>
       <h1>Latest Products</h1>
       <Row>
-        {products &&
-          products.map((product) => {
+        {data.products &&
+          data.products.map((product) => {
             return (
               <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
                 <Product product={product} />
