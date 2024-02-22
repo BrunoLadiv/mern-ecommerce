@@ -2,6 +2,7 @@ import express, { application } from 'express'
 import products from './data/products.js'
 import productRoutes from './routes/productRoutes.js' 
 import userRoutes from './routes/userRoutes.js'
+import orderRoutes from './routes/orderRoutes.js'
 import dotenv from 'dotenv'
 import cookieParser from 'cookie-parser'
 import { notFound, errorHandler } from './middleware/errorHandler.js'
@@ -22,6 +23,7 @@ app.get('/', (req, res) => {
 })
 app.use('/api/products', productRoutes)
 app.use('/api/users', userRoutes)
+app.use('/api/orders', orderRoutes)
 
 app.use(notFound)
 app.use(errorHandler)
