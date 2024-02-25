@@ -8,10 +8,11 @@ export default function HomeScreen() {
   if (isLoading) {
     return <Loader />
   }
+  console.log(error)
   if (isError) {
     return (
       <Message variant="danger">
-        Something went wrong {error.data.message}
+        Something went wrong {error.message}
       </Message>
     )
   }
