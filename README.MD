@@ -30,6 +30,7 @@ Check out the live preview of the Pro Shop E-commerce project [here](https://pro
 
 clone and setup .env
 
+```
 NODE_ENV=development
 PORT=5000
 MONGO_URI=your_mongodb_uri
@@ -37,3 +38,4 @@ JWT_SECRET=your_jwt_secret
 PAYPAL_CLIENT_ID=your_paypal_client_id
 PAYPAL_APP_SECRET=app_secret
 PAYPAL_API_URL=https://api-m.sandbox.paypal.com
+```
