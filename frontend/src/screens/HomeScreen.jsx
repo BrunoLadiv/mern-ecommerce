@@ -2,18 +2,21 @@ import { Row, Col } from 'react-bootstrap'
 import Product from '../components/Product'
 import { useGetProductsQuery } from '../slices/productsApiSlice'
 import Loader from '../components/Loader'
+import { useParams } from 'react-router-dom'
 import Message from '../components/Message'
+import Paginate from '../components/Paginate'
 export default function HomeScreen() {
-  const { data, isLoading, isError, error } = useGetProductsQuery()
+  const { pageNumber, keyword } = useParams()
+  const { data, isLoading, isError, error } = useGetProductsQuery({
+    keyword,
+    pageNumber,
+  })
   if (isLoading) {
     return <Loader />
   }
-  console.log(error)
   if (isError) {
     return (
-      <Message variant="danger">
-        Something went wrong {error.message}
-      </Message>
+      <Message variant="danger">Something went wrong {error.message}</Message>
     )
   }
   return (
@@ -29,6 +32,11 @@ export default function HomeScreen() {
             )
           })}
       </Row>
+      <Paginate
+        pages={data.pages}
+        page={data.page}
+        keyword={keyword ? keyword : ''}
+      />
     </>
   )
 }
