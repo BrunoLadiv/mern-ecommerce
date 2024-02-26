@@ -11,6 +11,12 @@ export default defineConfig({
         secure: false,
         rewrite: (path) => path, // Keep the path as is
       },
+      '/uploads': {
+        target: 'http://localhost:5000',
+        changeOrigin: true,
+        secure: false,
+        rewrite: (path) => path, // Keep the path as is
+      },
     },
   },
 })
